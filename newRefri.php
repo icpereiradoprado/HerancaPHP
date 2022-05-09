@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -51,7 +54,10 @@
                 $ret = "Não Retornável";
             }
             $refri = new Refrigerante($_POST["nome"],$_POST["preco"],$ret);
+            $preco = $_POST["preco"];
             echo $refri->mostrarBebida();
+            echo "<br / >";
+            echo $refri->verificarPreco($preco);
         }
         
     ?>

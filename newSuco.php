@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,6 +42,9 @@
         {
             $suco = new Suco($_POST["nome"],$_POST["preco"],$_POST["sabor"]);
             echo $suco->mostrarBebida();
+            $preco = $_POST["preco"];
+            echo "<br / >";
+            echo $suco->verificarPreco($preco);
         }
         
     ?>

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,24 +31,29 @@
                 <label for="">Tipo: </label><br>
                 <input type="text" name="tipo" id="tipo" required placeholder="Digite o tipo do produto...">
             </div>
-            <div class="field-form">
-                <input type="submit" name="enviar" value="Enviar">
+            <div class="field-form display-button">
+                <input type="submit" name="enviar" value="Enviar">  
             </div>
-
         </form>
+        
     </div>
 
     <?php
         require_once 'Bebida.php';
         require_once 'Vinho.php';
-
         if(isset($_POST["enviar"]))
         {
             $vinho = new Vinho($_POST["nome"],$_POST["preco"],$_POST["safra"],$_POST["tipo"]);
+            /*$_SESSION['preco'] = $_POST["preco"];
+            $_SESSION['objeto'] = $vinho;
+            */
             echo $vinho->mostrarBebida();
+            $preco = $_POST["preco"];
+            echo "<br / >";
+            echo $vinho->verificarPreco($preco);
+            
         }
         
     ?>
-    
 </body>
 </html>
