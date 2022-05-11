@@ -31,10 +31,10 @@
 
         public function verificarPreco($preco)
         {
-            $verifica = "Caro";
+            $verifica = "caro";
             if($preco < 2.50)
             {
-                $verifica = "Dentro do orçamento";
+                $verifica = "dentro do orçamento";
             }
 
             return $verifica;
